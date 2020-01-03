@@ -22,7 +22,7 @@ function restart() {
     // reset player score
     playerValue = 0;
     // this console log gives all relevant values for easy victories and testing
-    console.log(playerValue+" "+goalValue+" "+gems.ruby+" "+gems.emerald+" "+gems.quartz+" "+gems.sapphire)
+    console.log(playerValue+" "+goalValue+" "+gems.ruby+" "+gems.emerald+" "+gems.sapphire+" "+gems.quartz)
 
     refreshHTML()
 }
@@ -39,10 +39,12 @@ function gameLogic(){
         alert("You Lost!")
         restart();
     }
+
+    refreshHTML();
 }
 
 // i like making refreshhtml a function so i can just slap it on the end of everything important
-// needed on game restart and on buttonpress
+// its needed after button presses (in the gameLogic function) and once page loads
 function refreshHTML(){
     $("#wins").text(wins)
     $("#losses").text(losses)
@@ -51,8 +53,13 @@ function refreshHTML(){
 }
 
 
-// on page load function
+// when the page is fully loaded and ready
 window.onload = function() {
+
+    // generate game values and load them unto page
+    this.restart();
+    this.refreshHTML()
+
     $("#ruby").on("click", function(){
         playerValue = playerValue + gems.ruby;
         gameLogic();
@@ -73,9 +80,8 @@ window.onload = function() {
 
 // starts game for the first time
 // it wont push the empty numbers unto the page until you are on the second game
-restart();
-refreshHTML();
-$("#wins").text(wins)
-$("#losses").text(losses)
-$("#playerValue").text(playerValue)
-$("#goalValue").text(goalValue)
+// refreshHTML();
+// $("#wins").text(wins)
+// $("#losses").text(losses)
+// $("#playerValue").text(playerValue)
+// $("#goalValue").text(goalValue)
