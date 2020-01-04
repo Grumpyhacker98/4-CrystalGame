@@ -1,0 +1,23 @@
+#ruby{
+    background-image: url(../images/ruby.png);
+    height: 200px;
+    width: 200px;
+}
+
+#emerald{
+    background-image: url(../images/emerald.png);
+    height: 200px;
+    width: 200px;
+}
+
+#sapphire{
+    background-image: url(../images/sapphire.png);
+    height: 200px;
+    width: 200px;
+}
+
+#quartz{
+    background-image: url(../images/RainbowQuartz.png);
+    height: 200px;
+    width: 200px;
+}

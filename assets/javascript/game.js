@@ -14,7 +14,7 @@ var goalValue = 0
 function restart() {
     // make new goalvalue between 120 and 19
     goalValue = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-    // make 4 new hidden gem values
+    // make 4 new hidden gem values between 12 and 1
     gems.ruby = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
     gems.emerald = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
     gems.sapphire = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
@@ -22,9 +22,7 @@ function restart() {
     // reset player score
     playerValue = 0;
     // this console log gives all relevant values for easy victories and testing
-    console.log(playerValue+" "+goalValue+" "+gems.ruby+" "+gems.emerald+" "+gems.sapphire+" "+gems.quartz)
-
-    refreshHTML()
+    console.log(goalValue+" "+gems.ruby+" "+gems.emerald+" "+gems.sapphire+" "+gems.quartz)
 }
 
 // victory defeat logic
@@ -60,6 +58,7 @@ window.onload = function() {
     this.restart();
     this.refreshHTML()
 
+    // on click add value and run this.gameLogic, then refresh page
     $("#ruby").on("click", function(){
         playerValue = playerValue + gems.ruby;
         gameLogic();
@@ -77,11 +76,3 @@ window.onload = function() {
         gameLogic();
     });
 };
-
-// starts game for the first time
-// it wont push the empty numbers unto the page until you are on the second game
-// refreshHTML();
-// $("#wins").text(wins)
-// $("#losses").text(losses)
-// $("#playerValue").text(playerValue)
-// $("#goalValue").text(goalValue)
